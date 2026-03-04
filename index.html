@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Step-by-step guide to install Kali Linux in WSL on Windows 10 and Windows 11. Complete setup tutorial with troubleshooting and optimization tips.">
+        <meta name="keywords" content="Install Kali Linux in WSL, Kali Linux WSL setup, WSL Kali installation guide, Kali Linux on Windows 11">
+        <meta name="author" content="Your Name">
+        <title>How to Install Kali Linux in WSL (Windows 10 & 11)</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+
+        <h1>How to Install Kali Linux in WSL (Windows 10 & Windows 11)</h1>
+
+        <p>This guide explains how to install Kali Linux inside Windows using Windows Subsystem for Linux (WSL). This setup allows you to run Kali tools directly from Windows without a virtual machine.</p>
+
+        <div class="note">
+        Recommended: Use WSL 2 for better performance and full Linux kernel support.
+        </div>
+
+        <h2>System Requirements</h2>
+        <ul>
+        <li>Windows 10 version 2004+ or Windows 11</li>
+        <li>Virtualization enabled in BIOS</li>
+        <li>Administrator access</li>
+        </ul>
+
+        <h2>Step 1: Install WSL</h2>
+
+        <p>Open PowerShell as Administrator and run:</p>
+
+        <pre><code>wsl --install</code></pre>
+
+        <p>Restart your system after installation completes.</p>
+
+        <p>To confirm WSL is installed:</p>
+
+        <pre><code>wsl --status</code></pre>
+
+        </div>
+
+        <h2>Step 2: Install Kali Linux</h2>
+
+        <h3>Option 1: Install via Command Line (Recommended)</h3>
+
+        <pre><code>wsl --install -d kali-linux</code></pre>
+
+        <p>This automatically downloads and installs Kali Linux.</p>
+
+        <h3>Option 2: Install via Microsoft Store</h3>
+
+        <ol>
+        <li>Open Microsoft Store</li>
+        <li>Search for “Kali Linux”</li>
+        <li>Click Install</li>
+        </ol>
+
+        <h2>Step 3: Launch Kali Linux</h2>
+
+        After installation:
+
+        <pre><code>wsl -d kali-linux</code></pre>
+
+        Or search for “Kali Linux” in the Start menu.
+
+        You will be prompted to create:
+
+        - Username  
+        - Password  
+
+        This is your Linux user account.
+
+        <h2>Step 4: Update Kali Linux</h2>
+
+        After first login, always update:
+
+        <pre><code>sudo apt update && sudo apt upgrade -y</code></pre>
+
+        <h2>Step 5: Verify WSL Version</h2>
+
+        <pre><code>wsl --list --verbose</code></pre>
+
+        You should see:
+
+        Version: 2
+
+        If not, convert it:
+
+        <pre><code>wsl --set-version kali-linux 2</code></pre>
+
+        <div class="success">
+        Kali Linux is now successfully running inside WSL 2.
+        </div>
+
+        <h2>Common Issues & Fixes</h2>
+
+        <h3>Virtualization Not Enabled</h3>
+        Enable Intel VT-x or AMD-V from BIOS.
+
+        <h3>WSL Not Working</h3>
+
+        <pre><code>wsl --shutdown</code></pre>
+
+        Restart terminal.
+
+        <h3>EACCES Permission Errors with npm</h3>
+        Use NVM to manage Node inside Kali instead of system-wide installation.
+
+        <h2>Optional: Install Kali Tools Meta Package</h2>
+
+        Full Kali tools:
+
+        <pre><code>sudo apt install -y kali-linux-large</code></pre>
+
+        Minimal tools:
+
+        <pre><code>sudo apt install -y kali-linux-default</code></pre>
+
+        <h2>Why Use Kali in WSL?</h2>
+
+        <ul>
+        <li>No need for VirtualBox or VMware</li>
+        <li>Lightweight setup</li>
+        <li>Fast startup</li>
+        <li>Direct integration with Windows filesystem</li>
+        <li>Ideal for penetration testing labs</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+
+        Installing Kali Linux in WSL is the most efficient way to run a cybersecurity-focused Linux distribution on Windows. With WSL 2, you get near-native performance without virtualization overhead.
+
+        For best results:
+        <ul>
+        <li>Always use WSL 2</li>
+        <li>Keep Kali updated</li>
+        <li>Use NVM for Node-based tools</li>
+        </ul>
+
+    </body>
+</html>
