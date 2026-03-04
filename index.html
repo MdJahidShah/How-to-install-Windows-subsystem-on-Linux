@@ -128,6 +128,48 @@
         <li>Ideal for penetration testing labs</li>
         </ul>
 
+        <h2>Install OpenCode CLI in Kali Linux (WSL)</h2>
+
+        <p>After installing Kali Linux in WSL, you may want to install development tools like OpenCode CLI. Since OpenCode is a Node.js-based tool, we will use NVM (Node Version Manager) to avoid permission issues.</p>
+
+        <h3>Step 1: Install NVM (Node Version Manager)</h3>
+
+        <pre><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+        source ~/.bashrc</code></pre>
+
+        <h3>Step 2: Install Latest LTS Version of Node.js</h3>
+
+        <pre><code>nvm install --lts
+        nvm use --lts</code></pre>
+
+        <p>Verify installation:</p>
+
+        <pre><code>node -v
+        npm -v</code></pre>
+
+        <h3>Step 3: Install OpenCode CLI Globally</h3>
+
+        <pre><code>npm install -g opencode-ai</code></pre>
+
+        <p>No <code>sudo</code> is required when using NVM.</p>
+
+        <h3>Step 4: Verify OpenCode Installation</h3>
+
+        <pre><code>opencode --version</code></pre>
+
+        <div class="success">
+        OpenCode CLI is now successfully installed and ready to use inside Kali Linux (WSL).
+        </div>
+
+        <h3>Why Use NVM Instead of sudo npm?</h3>
+
+        <ul>
+        <li>Prevents EACCES permission errors</li>
+        <li>Avoids system-level conflicts</li>
+        <li>Allows multiple Node versions</li>
+        <li>Safer development environment</li>
+        </ul>
+
         <h2>Conclusion</h2>
 
         Installing Kali Linux in WSL is the most efficient way to run a cybersecurity-focused Linux distribution on Windows. With WSL 2, you get near-native performance without virtualization overhead.
